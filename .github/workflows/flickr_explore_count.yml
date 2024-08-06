@@ -17,11 +17,11 @@ on:
 
 
 jobs:
-  greet:
+  main:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: prepare pip package
-      run: pip install request
+      run: pip install requests
     - name: run
       run: python get_from_git.py ${{ inputs.start }} ${{ inputs.end }}
