@@ -27,7 +27,7 @@ jobs:
     - name: run
       run: python get_from_git.py ${{ inputs.start }} ${{ inputs.end }}
     - name: Download a Build Artifact
-    - uses: actions/download-artifact@v4.1.8
+      uses: actions/download-artifact@v4.1.8
       with:
         name: "result_${{ inputs.start }}__${{ inputs.s }}"
         path: result.log
