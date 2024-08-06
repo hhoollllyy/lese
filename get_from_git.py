@@ -34,7 +34,7 @@ params = {
     "reqId": reqId,
     "nojsoncallback": "1",
 }
-f = open("result.log", "w", encoding="utf-8");
+f = open("./result.log", "w", encoding="utf-8");
 for i in range(time_delta.days + 1):
     current_date = start_date + datetime.timedelta(days=i)
     date = current_date.strftime("%Y-%m-%d")
