@@ -24,4 +24,4 @@ jobs:
     - name: prepare pip package
       run: pip install request
     - name: run
-      run: python get_from_git.py ${{ input.start }} ${{ input.end }}
+      run: python get_from_git.py ${{ inputs.start }} ${{ inputs.end }}
