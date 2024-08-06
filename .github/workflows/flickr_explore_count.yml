@@ -1,0 +1,27 @@
+name: flickr_explore_count
+
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      start:
+        description: 'start date'
+        default: '2005-01-01'
+        required: true
+        type: string
+      end:
+        description: 'end date'
+        default: '2005-01-01'
+        required: true
+        type: string
+
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: prepare pip package
+      run: pip install request
+    - name: run
+      run: python get_from_git.py ${{ input.start }} ${{ input.end }}
