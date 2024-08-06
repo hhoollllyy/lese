@@ -24,12 +24,7 @@ jobs:
     - name: prepare pip package
       run: pip install requests
     - name: prepare env
-      run: |
-        mkdir result.log
-        ls
-        cat result.log
-        echo "r">result.log
-        cat result.log
+      run: echo "">result.log
     - name: run
       run: python get_from_git.py ${{ inputs.start }} ${{ inputs.end }}
     - name: Download a Build Artifact
