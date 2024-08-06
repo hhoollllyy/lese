@@ -34,7 +34,7 @@ params = {
     "reqId": reqId,
     "nojsoncallback": "1",
 }
-
+f = open("result.log", "w", encoding="utf-8");
 for i in range(time_delta.days + 1):
     current_date = start_date + datetime.timedelta(days=i)
     date = current_date.strftime("%Y-%m-%d")
@@ -48,8 +48,9 @@ for i in range(time_delta.days + 1):
         resp.raise_for_status()
         respjson = resp.json()
         if respjson["stat"] == "ok":
-            print(date, respjson["photos"]["total"], len(respjson["photos"]["photo"]))
+            print(date, respjson["photos"]["total"], len(respjson["photos"]["photo"]), file=f)
         else:
-            print(date, "err")
+            print(date, "err", file=f)
     except:
-        print(date, "error")
+        print(date, "error", file=f)
+f.close()
