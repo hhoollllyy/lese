@@ -27,8 +27,10 @@ jobs:
       run: echo "">result.log
     - name: run
       run: python get_from_git.py ${{ inputs.start }} ${{ inputs.end }}
+    - name: predownload
+      run: cp result.log "result_${{ inputs.start }}_${{ inputs.end }}.log"
     - name: Download a Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: "result_${{ inputs.start }}__${{ inputs.s }}"
-        path: result.log
+        name: "result_${{ inputs.start }}_${{ inputs.end }}"
+        path: "result_${{ inputs.start }}_${{ inputs.end }}.log"
